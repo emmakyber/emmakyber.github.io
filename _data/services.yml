@@ -1,7 +1,7 @@
 - row: row1
   services:
     - heading: Web Development
-    text: 
+      text: 
 
     - heading: Game Design
       text:
