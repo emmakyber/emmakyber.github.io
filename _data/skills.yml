@@ -1,17 +1,31 @@
-development:
+languages:
   - item: JavaScript
-  - item: HTML5
-  - item: CSS3
+  - item: HTML
+  - item: CSS/Sass
   - item: C#
   - item: C++
   - item: C
   - item: Python
 
-design:
-  - item: adobe-photoshop
-  - item: adobe-illustrator
+frameworks:
+  - item: React
+  - item: Jekyll
+  - item: Node
+  - item: Wordpress
+  - item: Unity
+  - item: Confluence
+  - item: Jira
 
 tools:
   - item: Git, Github
+  - item: CAD
+  - item: Gulp & Grunt
+  - item: SolidWorks
 
-knowledge:
+other:
+  - item: Excel/Numbers/Sheets
+  - item: PowerPoint/Keynote/Slides
+  - item: Problem Solving
+  - item: Communication
+  - item: Agile
+  - item: Mandarin Chinese
