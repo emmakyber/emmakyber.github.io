@@ -1,13 +1,8 @@
-const imagemin = require('gulp-imagemin');
+const imagemin = () => import('gulp-imagemin').then(module => module.default);
 
-const imgPath = 'img/**/*.+(png|jpg|gif|svg)';
-const destPath = '_site/img';
-
-module.exports = gulp => {
-  gulp.task('images', () => {
-    return gulp
-      .src(imgPath)
-      .pipe(imagemin())
-      .pipe(gulp.dest(destPath));
-  });
-};
+gulp.task('images', async function() {
+  const imageminPlugin = await imagemin();
+  return gulp.src('path/to/images')
+    .pipe(imageminPlugin(/* options */))
+    .pipe(gulp.dest('destination/path'));
+});
