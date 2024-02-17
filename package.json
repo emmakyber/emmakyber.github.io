@@ -24,6 +24,7 @@
     "gulp-imagemin": "^9.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
+    "lodash.debounce": "^4.0.8",
     "sass": "^1.71.0"
   }
 }

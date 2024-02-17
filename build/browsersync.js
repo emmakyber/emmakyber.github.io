@@ -1,5 +1,7 @@
+const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const cp = require('child_process');
+const debounce = require('lodash.debounce'); // You may need to install lodash.debounce
 
 const jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
@@ -14,39 +16,37 @@ const templatePath = [
 ];
 
 module.exports = gulp => {
-  const reloadBrowser = done => {
+  // Debounced reload function
+  const reloadBrowser = debounce(done => {
     browserSync.reload();
     done();
-  };
-  // run `jekyll build`
+  }, 300); // 300 ms delay
+
+  // Jekyll build tasks
   gulp.task('jekyll-build', done => {
     return cp.spawn(jekyll, ['build'], { stdio: 'inherit' }).on('close', done);
   });
 
-  // run `jekyll build` with _config_dev.yml
   gulp.task('jekyll-dev', done => {
     return cp
-      .spawn(jekyll, ['build', '--config', '_config.yml,_config_dev.yml'], {
-        stdio: 'inherit',
-      })
+      .spawn(jekyll, ['build', '--config', '_config.yml,_config_dev.yml'], { stdio: 'inherit' })
       .on('close', done);
   });
 
-  // Rebuild Jekyll then reload the page
-  gulp.task('jekyll-rebuild', gulp.series(['jekyll-dev', reloadBrowser]));
+  // Rebuild Jekyll and reload the page, using the debounced reload
+  gulp.task('jekyll-rebuild', gulp.series(['jekyll-dev'], reloadBrowser));
 
-  gulp.task(
-    'serve',
-    gulp.series('jekyll-dev', () => {
-      browserSync.init({
-        server: {
-          baseDir: '_site',
-        },
-      });
-
-      gulp.watch(scssPath, gulp.series(['sass', reloadBrowser]));
-      gulp.watch(jsPath, gulp.series(['scripts', reloadBrowser]));
-      gulp.watch(templatePath, gulp.task('jekyll-rebuild'));
-    })
-  );
+  gulp.task('serve', gulp.series('jekyll-dev', () => {
+    browserSync.init({
+      server: {
+        baseDir: '_site',
+      },
+      open: false, // Prevents BrowserSync from automatically opening a new window
+    });
+  
+    gulp.watch(scssPath, gulp.series(['sass', reloadBrowser]));
+    gulp.watch(jsPath, gulp.series(['scripts', reloadBrowser]));
+    gulp.watch(templatePath, gulp.series(['jekyll-rebuild']));
+  }));
+  
 };

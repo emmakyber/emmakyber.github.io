@@ -1,11 +1,14 @@
 const gulp = require('gulp');
-const sass = require('./build/sass');
-const scripts = require('./build/scripts');
-const images = require('./build/images')(gulp);
-const sync = require('./build/browsersync');
+const sassTask = require('./build/sass');
+const scriptsTask = require('./build/scripts');
+const imagesTask = require('./build/images');
+const browserSyncTask = require('./build/browsersync');
 
-[sass, scripts, images, sync].forEach(task => {
-  task(gulp);
-});
+// Initialize tasks
+sassTask(gulp);
+scriptsTask(gulp);
+imagesTask(gulp);
+browserSyncTask(gulp);
 
-gulp.task('build', gulp.series(['sass', 'scripts', 'images', 'jekyll-build']));
+// Define 'build' task
+gulp.task('build', gulp.series('sass', 'scripts', 'images', 'jekyll-build'));
