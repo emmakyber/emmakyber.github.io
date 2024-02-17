@@ -1,0 +1,38 @@
+# Site settings
+name: Emma Kyber
+title: Emma Kyber | Vanderbilt Computer Science and Engineering Management student
+description: Personal Webpage
+baseurl: ''
+email: emclaire.k@gmail.com
+cover: https://emmakyber.github.io/img/og.png
+logo: https://emmakyber.github.io/img/emojis/technologist.png
+resume: https://emmakyber.github.io/resume.pdf
+social:
+  - title: email
+    url: mailto:emclaire.k@gmail.com
+  - title: github
+    url: https://github.com/emmakyber
+  - title: linkedin
+    url: https://www.linkedin.com/in/emmakyber
+
+# Build settings
+markdown: kramdown
+
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - '*.gemspec'
+  - 'README.md'
+  - 'node_modules'
+  - 'build'
+  - 'gulpfile.js'
+  - 'package.json'
+
+keep_files:
+  - 'CNAME'
+  - '.git'
+  - '.gitignore'
+
+plugins_dir:
+  - jekyll-minifier
+  - jekyll-sitemap

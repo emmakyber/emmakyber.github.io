@@ -1,0 +1,31 @@
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
+  - "*.gemspec"
+
+keep_files:
+  - "CNAME"
+  - ".git"
+  - ".gitignore"
+
+# Site settings
+baseurl: ""
+title: Emma Kyber | Computer Science and Engineering Managment Student
+name: Emma Kyber
+description: 
+url: http://emmakyber.com # the base hostname & protocol for your site
+email: emclaire.k@gmail.com
+# cover: http://brittanychiang.com/img/og.jpg
+# logo: http://brittanychiang.com/img/logo-black.png
+# resume: http://brittanychiang.com/resume.pdf
+social:
+  - title: email
+    url: mailto:emclaire.k@gmail.com
+  - title: github
+    url: https://github.com/emmakyber
+  - title: linkedin
+    url: https://www.linkedin.com/in/emmakyber
+
+# Build settings
+markdown: kramdown

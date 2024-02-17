@@ -1,0 +1,17 @@
+development:
+  - item: JavaScript
+  - item: HTML5
+  - item: CSS3
+  - item: C#
+  - item: C++
+  - item: C
+  - item: Python
+
+design:
+  - item: adobe-photoshop
+  - item: adobe-illustrator
+
+tools:
+  - item: Git, Github
+
+knowledge:
