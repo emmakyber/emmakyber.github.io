@@ -1,24 +1,13 @@
-exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
-  - "README.md"
-  - "*.gemspec"
-
-keep_files:
-  - "CNAME"
-  - ".git"
-  - ".gitignore"
-
 # Site settings
-baseurl: ""
-title: Emma Kyber | Computer Science and Engineering Managment Student
-name: Emma Kyber
-description: 
-url: http://emmakyber.com # the base hostname & protocol for your site
+name: Brittany Chiang
+title: Brittany Chiang | Vanderbilt Computer Science and Engineering Management Student
+description: Personal Webpage
+url: https://emmakyber.github.io
+baseurl: ''
 email: emclaire.k@gmail.com
-# cover: http://brittanychiang.com/img/og.jpg
-# logo: http://brittanychiang.com/img/logo-black.png
-# resume: http://brittanychiang.com/resume.pdf
+# cover: https://emmakyber.github.io/img/og.png
+# logo: https://bchiang7.github.io/img/emojis/technologist.png
+resume: https://bchiang7.github.io/resume.pdf
 social:
   - title: email
     url: mailto:emclaire.k@gmail.com
@@ -29,3 +18,22 @@ social:
 
 # Build settings
 markdown: kramdown
+
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - '*.gemspec'
+  - 'README.md'
+  - 'node_modules'
+  - 'build'
+  - 'gulpfile.js'
+  - 'package.json'
+
+keep_files:
+  - 'CNAME'
+  - '.git'
+  - '.gitignore'
+
+plugins_dir:
+  - jekyll-minifier
+  - jekyll-sitemap
