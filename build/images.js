@@ -1,3 +1,4 @@
+const gulp = require('gulp');
 const imagemin = () => import('gulp-imagemin').then(module => module.default);
 
 gulp.task('images', async function() {
