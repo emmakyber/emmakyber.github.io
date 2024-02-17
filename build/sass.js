@@ -1,19 +1,20 @@
-const sass = require('gulp-sass');
-const prefix = require('gulp-autoprefixer');
+const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 
 const scssPath = '_scss/*.scss';
 const destPath = '_site/css';
 
 module.exports = gulp => {
-  gulp.task('sass', () => {
+  gulp.task('sass', async function () {
+    const prefix = (await import('gulp-autoprefixer')).default;
+
     return gulp
       .src(scssPath)
       .pipe(
         sass({
           includePaths: ['scss'],
           outputStyle: 'expanded',
-        })
+        }).on('error', sass.logError)
       )
       .pipe(
         prefix({
