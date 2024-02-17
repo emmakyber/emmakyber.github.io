@@ -6,8 +6,8 @@ url: https://emmakyber.github.io
 baseurl: ''
 email: emclaire.k@gmail.com
 # cover: https://emmakyber.github.io/img/og.png
-# logo: https://bchiang7.github.io/img/emojis/technologist.png
-resume: https://bchiang7.github.io/resume.pdf
+# logo: https://emmakyber.github.io/img/emojis/technologist.png
+resume: https://emmakyber.github.io/resume.pdf
 social:
   - title: email
     url: mailto:emclaire.k@gmail.com
